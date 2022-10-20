@@ -11,7 +11,7 @@ pipeline {
         
         stage('python') {
             steps {
-                sh 'python jenkin_test.py'
+                sh 'python3 jenkin_test.py'
             }
         }
     }

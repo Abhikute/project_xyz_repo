@@ -12,3 +12,7 @@ def url_checker(url):
 	except requests.exceptions.RequestException as e:
         # print URL with Errs
 		raise SystemExit(f"{url}: is Not reachable \nErr: {e}")
+		
+if __name__ == '__main__':
+    # Map command line arguments to function arguments.
+    url_checker(*sys.argv[1:])

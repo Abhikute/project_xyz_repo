@@ -1,4 +1,5 @@
 import sys
+import requests
 def url_checker(url):
 	try:
 		#Get Url
@@ -16,4 +17,4 @@ def url_checker(url):
 		
 if __name__ == '__main__':
     # Map command line arguments to function arguments.
-    url_checker(sys.argv[0])
+    url_checker(sys.argv[1])

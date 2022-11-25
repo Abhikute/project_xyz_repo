@@ -1,1 +1,10 @@
+{
+  "artifact_type":"BI Report",
+  "target_instance":"ERP",
+  "source_inctance":"D:/DPLOY_POC/OUT/7077",
+  "data":{
+    "report_list":['/Dev/BI Reports/AP_TurnOver_Ratio_Report.xdo'],
 
+         }
+
+}

@@ -3,7 +3,7 @@
   "target_instance":"ERP_instance_conn1",
   "source_inctance":"D:/DPLOY_POC/OUT/7077",
   "data":{
-    "report_list":['/Dev/BI Reports/AP_TurnOver_Ratio_Report.xdo'],
+    "report_list":["/Dev/BI Reports/AP_TurnOver_Ratio_Report.xdo"],
 
          }
 

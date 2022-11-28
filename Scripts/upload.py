@@ -6,6 +6,9 @@ from urllib3.exceptions import InsecureRequestWarning as _InsecureRequestWarning
 from multiprocessing import cpu_count as _cpu_count
 from base64 import b64encode as _b64encode
 from requests import post as _post
+import json
+import  requests
+from requests.auth import HTTPBasicAuth
 from xml.etree.ElementTree import fromstring as _fromstring
 _disable_warnings(_InsecureRequestWarning)
 
@@ -115,9 +118,55 @@ def uploadBI(url, user_name, password, reportRelativePath:str, reportLocalPath:s
     _info('uploadBI processs finsished')
     return ';'.join(responseResult)
 
+def file_check():
+    # Opening JSON file
+    f = open('Input_file.json')
+    # returns JSON object as
+    # a dictionary
+    data = json.load(f)
+    # Iterating through the json
+    # list
+
+    if any([True for i, j in data.items() if j == '']):
+        if not data["report_list"]:
+            _info('Report files are missing!!!!')
+            print("Report files are missing!!!")
+
+
+        _info('File inputs are not valid!!!!')
+        print("Send email notification to the user")
+    else:
+        if not data["report_list"]:
+            _info('Report files are missing!!!!')
+            print("Report files are missing!!!")
+        _info('File inputs are verified!!!!')
+        print("File inputs are verified!!!!")
+    # Closing file
+    f.close()
+
+
+
+def check_instance_connection():
+    f = open("connections.json")
+    data = json.load(f)
+    url=data["ERP_instance_conn1"]
+    get = requests.get(url,auth = HTTPBasicAuth(data['ERP_instance_conn1_cred'][0]['ERP_instance_conn1_user'], data['ERP_instance_conn1_cred'][0]['ERP_instance_conn1_pass']))
+        # if the request succeeds
+
+    if get.status_code == 200:
+        return (f"{url}: is reachable")
+    else:
+        return (f"{url}: is Not reachable, status_code: {get.status_code}")
+
+
+
+
 if __name__ == "__main__":
+      print(check_instance_connection())
+      # file_check()
 #     a= uploadBI('https://analyticsdigitalinstance-bmfbdl6iatvi-bo.analytics.ocp.oraclecloud.com/',
 #                 'sushilkumar.jadhav85@gmail.com',
 #                 'Internal@123',
 #                 '/Dev/BI Reports/AP_TurnOver_Ratio_Report.xdo'
 #                 'D:/DPLOY_POC/OUT/7077' )
+

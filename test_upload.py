@@ -130,10 +130,6 @@ if __name__ == "__main__":
     a =uploadBI('https://analyticsdigitalinstance-bmfbdl6iatvi-bo.analytics.ocp.oraclecloud.com/',
                  'sushilkumar.jadhav85@gmail.com',
                  'Internal@123',
-<<<<<<< HEAD
                  '/Dev/BI Reports/AP_TurnOver_Ratio_Report.xdo',
                  '/Dev/OUT/BI_Reports')
-=======
-                 '/AP_TurnOver_Ratio_Report.xdo',
-                 'D:/DPLOY_POC/OUT/7077')
->>>>>>> cc6e7c42863d2c5606e20883420e36bba25039fc
+

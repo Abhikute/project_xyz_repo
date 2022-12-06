@@ -130,5 +130,5 @@ def uploadBI(url, user_name, password, reportRelativePath, reportLocalPath):
 uploadBI('https://analyticsdigitalinstance-bmfbdl6iatvi-bo.analytics.ocp.oraclecloud.com/',
                  'sushilkumar.jadhav85@gmail.com',
                  'Internal@123',
-                 '/Dev/BI Reports/AP_TurnOver_Ratio_Report.xdo',
+                 '/AP_TurnOver_Ratio_Report.xdo',
                  'D:/DPLOY_POC/OUT/7077')

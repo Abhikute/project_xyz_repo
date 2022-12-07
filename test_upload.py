@@ -114,7 +114,7 @@ def uploadBI(url, user_name, password, reportRelativePath, reportLocalPath):
         _basicConfig(filename=logFilePath, filemode='a+', format='%(asctime)s - %(levelname)s - %(message)s',
                      level=_NOTSET)
     except Exception as e:
-        pass
+        print(e)
     _info('uploadBI processs started')
     _info('MAX_RUN_COUNT: {MAX_RUN_COUNT}'.format(MAX_RUN_COUNT=MAX_RUN_COUNT))
     _info('WAIT_TIME: {WAIT_TIME}'.format(WAIT_TIME=WAIT_TIME))
@@ -138,6 +138,6 @@ if __name__ == "__main__":
     a =uploadBI('https://analyticsdigitalinstance-bmfbdl6iatvi-bo.analytics.ocp.oraclecloud.com/',
                  'sushilkumar.jadhav85@gmail.com',
                  'Internal@123',
-                 './local_git_folder/Dev/BI Reports/AP_TurnOver_Ratio_Report.xdo',
+                 '/Dev/BI Reports/AP_TurnOver_Ratio_Report.xdo',
                  './local_git_folder/Dev/OUT/BI Reports')
 

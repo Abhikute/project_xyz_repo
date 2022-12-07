@@ -131,5 +131,5 @@ if __name__ == "__main__":
                  'sushilkumar.jadhav85@gmail.com',
                  'Internal@123',
                  '/d_test/Dev/BI Reports/AP_TurnOver_Ratio_Report.xdo',
-                 '/Dev/OUT/BI_Reports')
+                 'd_test/Dev/OUT/BI_Reports')
 

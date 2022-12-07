@@ -139,5 +139,5 @@ if __name__ == "__main__":
                  'sushilkumar.jadhav85@gmail.com',
                  'Internal@123',
                  './local_git_folder/tree/main/Dev/BI Reports/AP_TurnOver_Ratio_Report.xdo',
-                 './local_git_folder/tree/main/Dev/OUT/BI_Reports')
+                 './local_git_folder/tree/main/Dev/OUT/BI Reports')
 

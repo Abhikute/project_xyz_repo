@@ -27,7 +27,6 @@ class _SoapConsumeUpload:
         _message = kargs.get('message')
         _url = kargs.get('url', self.targetWsdlURL)
         _header = kargs.get('header', self.header)
-<<<<<<< HEAD
         # _info('{_message} : {body}'.format(_message=_message,body=body))
         print('{_message} : {body}'.format(_message=_message,body=body))
         response = _post(_url, data=body.replace('##CREDENTIAL##', self.getCredentials), headers=_header, verify=verify,
@@ -35,14 +34,12 @@ class _SoapConsumeUpload:
         # _info('{_message} : {status}'.format(_message=_message,status=response.status_code))
         print('{_message} : {status}'.format(_message=_message,status=response.status_code))
         # _info(response.text)
-=======
         _info('{_message} : {body}'.format(_message=_message,body=body))
         print("Before post:",_message)
         response = _post(_url, data=body.replace('##CREDENTIAL##', self.getCredentials), headers=_header, verify=verify,
                          timeout=timeout)
         _info('{_message} : {status}'.format(_message=_message,status=response.status_code))
         _info(response.text)
->>>>>>> a2b2848e52cd1a85a84ee7a6a36483ad36bde430
         print(response.text)
         return response
 
@@ -50,10 +47,7 @@ class _SoapConsumeUpload:
         # _info('Upload object processs started for {path}'.format(path=path))
         print('Upload object processs started for {path}'.format(path=path))
         responseMessage = '_error : File failed to uploaded : ' + path
-<<<<<<< HEAD
-=======
         print("Upload object", path)
->>>>>>> a2b2848e52cd1a85a84ee7a6a36483ad36bde430
         try:
             fileName, fileExtension = path.split('/')[-1].split('.')
             fileLocation = '{path}/{fileName}.{fileExtension}'.format(path=self.reportLocalPath,fileName=fileName,fileExtension=fileExtension)
@@ -81,13 +75,10 @@ class _SoapConsumeUpload:
             responseMessage = '_error : %s : %s' % (e.__str__().replace(':', ''), path)
             print("File upload exception :", responseMessage)
         finally:
-<<<<<<< HEAD
             # _info('Upload processs completed for {path} -- {responseMessage}'.format(path=path,responseMessage=responseMessage))
             print('Upload processs completed for {path} -- {responseMessage}'.format(path=path,responseMessage=responseMessage))
-=======
             _info('Upload processs completed for {path} -- {responseMessage}'.format(path=path,responseMessage=responseMessage))
             print(responseMessage)
->>>>>>> a2b2848e52cd1a85a84ee7a6a36483ad36bde430
             return responseMessage
 
     def _deleteObject(self, path):
@@ -140,7 +131,6 @@ def uploadBI(url, user_name, password, reportRelativePath, reportLocalPath):
         _basicConfig(filename=logFilePath, filemode='a+', format='%(asctime)s - %(levelname)s - %(message)s',
                      level=_NOTSET)
     except Exception as e:
-<<<<<<< HEAD
         print("Logfile exception", e)
     # _info('uploadBI processs started')
     print('uploadBI processs started')
@@ -148,12 +138,10 @@ def uploadBI(url, user_name, password, reportRelativePath, reportLocalPath):
     print('MAX_RUN_COUNT: {MAX_RUN_COUNT}'.format(MAX_RUN_COUNT=MAX_RUN_COUNT))
     # _info('WAIT_TIME: {WAIT_TIME}'.format(WAIT_TIME=WAIT_TIME))
     print('WAIT_TIME: {WAIT_TIME}'.format(WAIT_TIME=WAIT_TIME))
-=======
         print(e)
     _info('uploadBI processs started')
     _info('MAX_RUN_COUNT: {MAX_RUN_COUNT}'.format(MAX_RUN_COUNT=MAX_RUN_COUNT))
     _info('WAIT_TIME: {WAIT_TIME}'.format(WAIT_TIME=WAIT_TIME))
->>>>>>> a2b2848e52cd1a85a84ee7a6a36483ad36bde430
     soapConsumeObject = _SoapConsumeUpload(targetURL=url, targetUserName=user_name, targetPassword=password,
                                            reportLocalPath=reportLocalPath)
 
@@ -166,28 +154,20 @@ def uploadBI(url, user_name, password, reportRelativePath, reportLocalPath):
         [i.start() for i in runThreadList]
         [i.join() for i in runThreadList]
     _info(responseResult)
-<<<<<<< HEAD
     print('uploadBI processs finsished')
     # _info('uploadBI processs finsished')
-=======
     print("UploadBI process finished",responseResult)
     _info('uploadBI processs finsished')
->>>>>>> a2b2848e52cd1a85a84ee7a6a36483ad36bde430
     return ';'.join(responseResult)
 
 if __name__ == "__main__":
     a =uploadBI('https://analyticsdigitalinstance-bmfbdl6iatvi-bo.analytics.ocp.oraclecloud.com/',
                  'sushilkumar.jadhav85@gmail.com',
                  'Internal@123',
-<<<<<<< HEAD
-                 '/Dev/BI Reports/AP_TurnOver_Ratio_Report.xdo',
-                 '/Dev/OUT/BI_Reports')
+#                  '/Dev/BI Reports/AP_TurnOver_Ratio_Report.xdo',
+#                  '/Dev/OUT/BI_Reports')
 
                  # '/AP_TurnOver_Ratio_Report.xdo',
                  # 'D:/DPLOY_POC/OUT/7077')
-# >>>>>>> cc6e7c42863d2c5606e20883420e36bba25039fc
-=======
                  '/Dev/BI Reports/Asset_Coverage_Ratio_Report.xdo',
                  './local_git_folder/Dev/OUT/BI Reports')
-
->>>>>>> a2b2848e52cd1a85a84ee7a6a36483ad36bde430

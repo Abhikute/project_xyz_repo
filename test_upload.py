@@ -138,10 +138,10 @@ def uploadBI(url, user_name, password, reportRelativePath, reportLocalPath):
     print('MAX_RUN_COUNT: {MAX_RUN_COUNT}'.format(MAX_RUN_COUNT=MAX_RUN_COUNT))
     # _info('WAIT_TIME: {WAIT_TIME}'.format(WAIT_TIME=WAIT_TIME))
     print('WAIT_TIME: {WAIT_TIME}'.format(WAIT_TIME=WAIT_TIME))
-        print(e)
-    _info('uploadBI processs started')
-    _info('MAX_RUN_COUNT: {MAX_RUN_COUNT}'.format(MAX_RUN_COUNT=MAX_RUN_COUNT))
-    _info('WAIT_TIME: {WAIT_TIME}'.format(WAIT_TIME=WAIT_TIME))
+        
+#     _info('uploadBI processs started')
+#     _info('MAX_RUN_COUNT: {MAX_RUN_COUNT}'.format(MAX_RUN_COUNT=MAX_RUN_COUNT))
+#     _info('WAIT_TIME: {WAIT_TIME}'.format(WAIT_TIME=WAIT_TIME))
     soapConsumeObject = _SoapConsumeUpload(targetURL=url, targetUserName=user_name, targetPassword=password,
                                            reportLocalPath=reportLocalPath)
 

@@ -44,7 +44,7 @@ class _SoapConsumeUpload:
                                                                       fileExtension=fileExtension)
             print(fileLocation)
             objectZippedData = _b64encode(open(fileLocation, 'rb').read()).decode('utf-8')
-            # self._deleteObject(path)
+            self._deleteObject(path)
             body = '''<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
             xmlns:v2="http://xmlns.oracle.com/oxp/service/v2"><soapenv:Header/><soapenv:Body>
                 <v2:uploadObject>
@@ -143,5 +143,5 @@ if __name__ == "__main__":
     a =uploadBI('https://analyticsdigitalinstance-bmfbdl6iatvi-bo.analytics.ocp.oraclecloud.com/',
                  'sushilkumar.jadhav85@gmail.com',
                  'Internal@123',
-                 "'/Dev/BI Reports/Asset_Coverage_Ratio_Report.xdo', '/Dev/BI Reports/AP_TurnOver_Ratio_Report.xdo'",
+                 "'/Dev/BI Reports/Asset_Coverage_Ratio_Report.xdo','/Dev/BI Reports/AP_TurnOver_Ratio_Report.xdo'",
                  './local_git_folder/Dev/OUT/BI Reports')

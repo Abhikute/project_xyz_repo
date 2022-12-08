@@ -32,7 +32,6 @@ class _SoapConsumeUpload:
         response = _post(_url, data=body.replace('##CREDENTIAL##', self.getCredentials), headers=_header, verify=verify,
                          timeout=timeout)
         print('{_message} : {status}'.format(_message=_message,status=response.status_code))
-        print(response.text)
         return response
 
     def uploadObject(self, path):
@@ -130,5 +129,5 @@ if __name__ == "__main__":
     a =uploadBI('https://analyticsdigitalinstance-bmfbdl6iatvi-bo.analytics.ocp.oraclecloud.com/',
                  'sushilkumar.jadhav85@gmail.com',
                  'Internal@123',
-                 "/Dev/BI Reports/AP_TurnOver_Ratio_Report.xdo,'/Dev/BI Reports/Asset_Coverage_Ratio_Report.xdo'",
+                 "/Dev/BI Reports/AP_TurnOver_Ratio_Report.xdo,/Dev/BI Reports/Asset_Coverage_Ratio_Report.xdo",
                  './local_git_folder/Dev/OUT/BI Reports')

@@ -44,7 +44,6 @@ class _SoapConsumeUpload:
                                                                       fileExtension=fileExtension)
             print(fileLocation)
             objectZippedData = _b64encode(open(fileLocation, 'rb').read()).decode('utf-8')
-            self._deleteObject(path)
             body = '''<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
             xmlns:v2="http://xmlns.oracle.com/oxp/service/v2"><soapenv:Header/><soapenv:Body>
                 <v2:uploadObject>
@@ -66,7 +65,6 @@ class _SoapConsumeUpload:
         except Exception as e:
             _error(str(e))
             responseMessage = '_error : %s : %s' % (e.__str__().replace(':', ''), path)
-            print("File upload exception :", responseMessage)
         finally:
             print('Upload processs completed for {path} -- {responseMessage}'.format(path=path,
                                                                                      responseMessage=responseMessage))
@@ -108,17 +106,6 @@ def multiThreadingUploadBI(SoapObj, reportRelativePath):
 
 
 def uploadBI(url, user_name, password, reportRelativePath, reportLocalPath):
-    try:
-        splitPath = reportLocalPath.split('/')
-        path = '/'.join(splitPath[:splitPath.index('OUT') + 1])
-        requestID = splitPath[splitPath.index('OUT') + 1]
-        # logFilePath = path + '/error/LOG_{requestID}.txt'.format(requestID=requestID)
-        # print(logFilePath)
-        # _basicConfig(filename=logFilePath, filemode='a+', format='%(asctime)s - %(levelname)s - %(message)s',
-        #              level=_NOTSET)
-    except Exception as e:
-        print("Logfile exception", e)
-
     print('uploadBI processs started')
     print('MAX_RUN_COUNT: {MAX_RUN_COUNT}'.format(MAX_RUN_COUNT=MAX_RUN_COUNT))
     print('WAIT_TIME: {WAIT_TIME}'.format(WAIT_TIME=WAIT_TIME))
@@ -143,5 +130,5 @@ if __name__ == "__main__":
     a =uploadBI('https://analyticsdigitalinstance-bmfbdl6iatvi-bo.analytics.ocp.oraclecloud.com/',
                  'sushilkumar.jadhav85@gmail.com',
                  'Internal@123',
-                 '/Dev/BI Reports/AP_TurnOver_Ratio_Report.xdo',
+                 "/Dev/BI Reports/AP_TurnOver_Ratio_Report.xdo,'/Dev/BI Reports/Asset_Coverage_Ratio_Report.xdo'",
                  './local_git_folder/Dev/OUT/BI Reports')

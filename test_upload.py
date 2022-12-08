@@ -1,4 +1,4 @@
-from logging import basicConfig as _basicConfig, info as _info, error as _error, NOTSET as _NOTSET
+from logging import info as _info, error as _error
 from threading import Thread as _Thread
 from time import sleep as _sleep
 from urllib3 import disable_warnings as _disable_warnings
@@ -28,7 +28,6 @@ class _SoapConsumeUpload:
         _message = kargs.get('message')
         _url = kargs.get('url', self.targetWsdlURL)
         _header = kargs.get('header', self.header)
-        print('{_message} : {body}'.format(_message=_message,body=body))
         response = _post(_url, data=body.replace('##CREDENTIAL##', self.getCredentials), headers=_header, verify=verify,
                          timeout=timeout)
         print('{_message} : {status}'.format(_message=_message,status=response.status_code))
@@ -68,35 +67,6 @@ class _SoapConsumeUpload:
             print('Upload processs completed for {path} -- {responseMessage}'.format(path=path,
                                                                                      responseMessage=responseMessage))
             return responseMessage
-
-    def _deleteObject(self, path):
-        print('Delete object processs started for {path}'.format(path=path))
-        body = """<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
-        xmlns:v2="http://xmlns.oracle.com/oxp/service/v2"><soapenv:Header/><soapenv:Body><v2:deleteObject>
-                        <v2:objectAbsolutePath>{path}</v2:objectAbsolutePath>
-                        ##CREDENTIAL##
-                    </v2:deleteObject></soapenv:Body></soapenv:Envelope>""".format(path=path)
-        response = self._callPostMethod(body, message='Delete function Called')
-        if response.status_code // 100 == 2:
-            self._objectExistsCheck(path)
-
-        print('Delete object processs completed with status as {status}'.format(status=response.status_code))
-
-    def _objectExistsCheck(self, path):
-        print('Object Exists Check processs started for {path}'.format(path=path))
-        body = """<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-         xmlns:v2="http://xmlns.oracle.com/oxp/service/v2"><soapenv:Header/><soapenv:Body>
-                    <v2:objectExist>
-                        <v2:reportObjectAbsolutePath>?</v2:reportObjectAbsolutePath>
-                        ##CREDENTIAL##
-                    </v2:objectExist></soapenv:Body></soapenv:Envelope>"""
-        while (True):
-            response = self._callPostMethod(body, message='objectExistsCheck function Called')
-            if response.text.__contains__('<objectExistReturn>false</objectExistReturn>'): break
-            _sleep(WAIT_TIME)
-        print('Object Exists Check processs Completed for {path}'.format(path=path))
-
-
 def multiThreadingUploadBI(SoapObj, reportRelativePath):
     print('uploadBI processs started for {reportRelativePath}'.format(reportRelativePath=reportRelativePath))
     responseString = SoapObj.uploadObject(reportRelativePath.strip())

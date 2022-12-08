@@ -27,17 +27,20 @@ class _SoapConsumeUpload:
         _message = kargs.get('message')
         _url = kargs.get('url', self.targetWsdlURL)
         _header = kargs.get('header', self.header)
-        _info('{_message} : {body}'.format(_message=_message,body=body))
+        # _info('{_message} : {body}'.format(_message=_message,body=body))
+        print('{_message} : {body}'.format(_message=_message,body=body))
         response = _post(_url, data=body.replace('##CREDENTIAL##', self.getCredentials), headers=_header, verify=verify,
                          timeout=timeout)
-        _info('{_message} : {status}'.format(_message=_message,status=response.status_code))
-        _info(response.text)
+        # _info('{_message} : {status}'.format(_message=_message,status=response.status_code))
+        print('{_message} : {status}'.format(_message=_message,status=response.status_code))
+        # _info(response.text)
+        print(response.text)
         return response
 
     def uploadObject(self, path):
-        _info('Upload object processs started for {path}'.format(path=path))
+        # _info('Upload object processs started for {path}'.format(path=path))
+        print('Upload object processs started for {path}'.format(path=path))
         responseMessage = '_error : File failed to uploaded : ' + path
-        print("Upload object")
         try:
             fileName, fileExtension = path.split('/')[-1].split('.')
             fileLocation = '{path}/{fileName}.{fileExtension}'.format(path=self.reportLocalPath,fileName=fileName,fileExtension=fileExtension)
@@ -61,12 +64,15 @@ class _SoapConsumeUpload:
         except Exception as e:
             _error(str(e))
             responseMessage = '_error : %s : %s' % (e.__str__().replace(':', ''), path)
+            print("File upload exception :", responseMessage)
         finally:
-            _info('Upload processs completed for {path} -- {responseMessage}'.format(path=path,responseMessage=responseMessage))
+            # _info('Upload processs completed for {path} -- {responseMessage}'.format(path=path,responseMessage=responseMessage))
+            print('Upload processs completed for {path} -- {responseMessage}'.format(path=path,responseMessage=responseMessage))
             return responseMessage
 
     def _deleteObject(self, path):
-        _info('Delete object processs started for {path}'.format(path=path))
+        # _info('Delete object processs started for {path}'.format(path=path))
+        print('Delete object processs started for {path}'.format(path=path))
         body = """<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="http://xmlns.oracle.com/oxp/service/v2"><soapenv:Header/><soapenv:Body><v2:deleteObject>
                         <v2:objectAbsolutePath>{path}</v2:objectAbsolutePath>
                         ##CREDENTIAL##
@@ -74,10 +80,12 @@ class _SoapConsumeUpload:
         response = self._callPostMethod(body, message='Delete function Called')
         if response.status_code // 100 == 2:
             self._objectExistsCheck(path)
-        _info('Delete object processs completed with status as {status}'.format(status=response.status_code))
+        # _info('Delete object processs completed with status as {status}'.format(status=response.status_code))
+        print('Delete object processs completed with status as {status}'.format(status=response.status_code))
 
     def _objectExistsCheck(self, path):
-        _info('Object Exists Check processs started for {path}'.format(path=path))
+        # _info('Object Exists Check processs started for {path}'.format(path=path))
+        print('Object Exists Check processs started for {path}'.format(path=path))
         body = """<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="http://xmlns.oracle.com/oxp/service/v2"><soapenv:Header/><soapenv:Body>
                     <v2:objectExist>
                         <v2:reportObjectAbsolutePath>?</v2:reportObjectAbsolutePath>
@@ -87,19 +95,22 @@ class _SoapConsumeUpload:
             response = self._callPostMethod(body, message='objectExistsCheck function Called')
             if response.text.__contains__('<objectExistReturn>false</objectExistReturn>'): break
             _sleep(WAIT_TIME)
-        _info('Object Exists Check processs Completed for {path}'.format(path=path))
+        # _info('Object Exists Check processs Completed for {path}'.format(path=path))
+        print('Object Exists Check processs Completed for {path}'.format(path=path))
 
 
 def multiThreadingUploadBI(SoapObj, reportRelativePath):
-    _info('uploadBI processs started for {reportRelativePath}'.format(reportRelativePath=reportRelativePath))
+    # _info('uploadBI processs started for {reportRelativePath}'.format(reportRelativePath=reportRelativePath))
+    print('uploadBI processs started for {reportRelativePath}'.format(reportRelativePath=reportRelativePath))
     responseString = SoapObj.uploadObject(reportRelativePath.strip())
-    print("In Multithreading function")
+    # print("In Multithreading function")
     responseResult.append(responseString)
-    _info('uploadBI processs completed for {reportRelativePath}'.format(reportRelativePath=reportRelativePath))
+    # _info('uploadBI processs completed for {reportRelativePath}'.format(reportRelativePath=reportRelativePath))
+    print('uploadBI processs completed for {reportRelativePath}'.format(reportRelativePath=reportRelativePath))
 
 
 def uploadBI(url, user_name, password, reportRelativePath, reportLocalPath):
-    print("Testt")
+    # print("Testt")
     try:
         splitPath = reportLocalPath.split('/')
         path = '/'.join(splitPath[:splitPath.index('OUT') + 1])
@@ -108,10 +119,13 @@ def uploadBI(url, user_name, password, reportRelativePath, reportLocalPath):
         _basicConfig(filename=logFilePath, filemode='a+', format='%(asctime)s - %(levelname)s - %(message)s',
                      level=_NOTSET)
     except Exception as e:
-        pass
-    _info('uploadBI processs started')
-    _info('MAX_RUN_COUNT: {MAX_RUN_COUNT}'.format(MAX_RUN_COUNT=MAX_RUN_COUNT))
-    _info('WAIT_TIME: {WAIT_TIME}'.format(WAIT_TIME=WAIT_TIME))
+        print("Logfile exception", e)
+    # _info('uploadBI processs started')
+    print('uploadBI processs started')
+    # _info('MAX_RUN_COUNT: {MAX_RUN_COUNT}'.format(MAX_RUN_COUNT=MAX_RUN_COUNT))
+    print('MAX_RUN_COUNT: {MAX_RUN_COUNT}'.format(MAX_RUN_COUNT=MAX_RUN_COUNT))
+    # _info('WAIT_TIME: {WAIT_TIME}'.format(WAIT_TIME=WAIT_TIME))
+    print('WAIT_TIME: {WAIT_TIME}'.format(WAIT_TIME=WAIT_TIME))
     soapConsumeObject = _SoapConsumeUpload(targetURL=url, targetUserName=user_name, targetPassword=password,
                                            reportLocalPath=reportLocalPath)
 
@@ -123,17 +137,17 @@ def uploadBI(url, user_name, password, reportRelativePath, reportLocalPath):
         [i.start() for i in runThreadList]
         [i.join() for i in runThreadList]
     _info(responseResult)
-    _info('uploadBI processs finsished')
+    print('uploadBI processs finsished')
+    # _info('uploadBI processs finsished')
     return ';'.join(responseResult)
 
 if __name__ == "__main__":
     a =uploadBI('https://analyticsdigitalinstance-bmfbdl6iatvi-bo.analytics.ocp.oraclecloud.com/',
                  'sushilkumar.jadhav85@gmail.com',
                  'Internal@123',
-<<<<<<< HEAD
                  '/Dev/BI Reports/AP_TurnOver_Ratio_Report.xdo',
                  '/Dev/OUT/BI_Reports')
-=======
-                 '/AP_TurnOver_Ratio_Report.xdo',
-                 'D:/DPLOY_POC/OUT/7077')
->>>>>>> cc6e7c42863d2c5606e20883420e36bba25039fc
+
+                 # '/AP_TurnOver_Ratio_Report.xdo',
+                 # 'D:/DPLOY_POC/OUT/7077')
+# >>>>>>> cc6e7c42863d2c5606e20883420e36bba25039fc

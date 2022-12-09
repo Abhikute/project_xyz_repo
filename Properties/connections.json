@@ -1,0 +1,11 @@
+{
+  "OIC_instance_conn1":"",
+  "ERP_instance_conn1":"https://analyticsdigitalinstance-bmfbdl6iatvi-bo.analytics.ocp.oraclecloud.com/",
+  "OIC_instance_conn1_cred":"",
+   "ERP_instance_conn1_cred" :
+        [{
+        "ERP_instance_conn1_pass":"Internal@123",
+        "ERP_instance_conn1_user":"sushilkumar.jadhav85@gmail.com"
+         }]
+
+}

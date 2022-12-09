@@ -1,8 +1,8 @@
 {
   "artifact_type":"BI Report",
   "target_instance":"ERP_instance_conn1",
-  "source_inctance":"./local_git_folder/Dev/OUT/BI Reports",
-   "report_list":"/Dev/BI Reports/AP_TurnOver_Ratio_Report.xdo,/BI Reports/Asset_Coverage_Ratio_Report.xdo"
+  "source_inctance":"./local_git_folder/Dev/OUT/BI_Reports",
+   "report_list":"/Dev/BI_Reports/AP_TurnOver_Ratio_Report.xdo,/BI_Reports/Asset_Coverage_Ratio_Report.xdo"
 
 
 

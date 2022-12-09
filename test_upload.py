@@ -7,6 +7,7 @@ from multiprocessing import cpu_count as _cpu_count
 from base64 import b64encode as _b64encode
 from requests import post as _post
 from xml.etree.ElementTree import fromstring as _fromstring
+import sys
 
 _disable_warnings(_InsecureRequestWarning)
 
@@ -96,8 +97,10 @@ def uploadBI(url, user_name, password, reportRelativePath, reportLocalPath):
     return ';'.join(responseResult)
 
 if __name__ == "__main__":
-    a =uploadBI('https://analyticsdigitalinstance-bmfbdl6iatvi-bo.analytics.ocp.oraclecloud.com/',
-                 'sushilkumar.jadhav85@gmail.com',
-                 'Internal@123',
-                 "/Dev/BI Reports/AP_TurnOver_Ratio_Report.xdo,/BI Reports/Asset_Coverage_Ratio_Report.xdo",
-                 './local_git_folder/Dev/OUT/BI Reports')
+      a=uploadBI(sys.args[1],sys.args[2],sys.args[3],sys.args[4],sys.args[5])
+#     a =uploadBI('https://analyticsdigitalinstance-bmfbdl6iatvi-bo.analytics.ocp.oraclecloud.com/',
+#                  'sushilkumar.jadhav85@gmail.com',
+#                  'Internal@123',
+#                  "/Dev/BI Reports/AP_TurnOver_Ratio_Report.xdo,/BI Reports/Asset_Coverage_Ratio_Report.xdo",
+#                  './local_git_folder/Dev/OUT/BI Reports')
+

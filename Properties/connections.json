@@ -4,7 +4,7 @@
   "OIC_instance_conn1_cred":"",
    "ERP_instance_conn1_cred" :
         {
-        "ERP_instance_conn1_pass":'Internal@123",
+        "ERP_instance_conn1_pass":"Internal@123",
         "ERP_instance_conn1_user":"sushilkumar.jadhav85@gmail.com"
          }
 

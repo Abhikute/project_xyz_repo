@@ -97,10 +97,10 @@ def uploadBI(url, user_name, password, reportRelativePath, reportLocalPath):
     return ';'.join(responseResult)
 
 if __name__ == "__main__":
-      a=uploadBI(sys.argv[1].replace("'",""),sys.argv[2].replace("'",""),sys.argv[3].replace("'",""),sys.argv[4].replace("'",""),sys.argv[5].replace("'",""))
-#     a =uploadBI('https://analyticsdigitalinstance-bmfbdl6iatvi-bo.analytics.ocp.oraclecloud.com/',
-#                  'sushilkumar.jadhav85@gmail.com',
-#                  'Internal@123',
-#                  "/Dev/BI Reports/AP_TurnOver_Ratio_Report.xdo,/BI Reports/Asset_Coverage_Ratio_Report.xdo",
-#                  './local_git_folder/Dev/OUT/BI Reports')
+#       a=uploadBI(sys.argv[1].replace("'",""),sys.argv[2].replace("'",""),sys.argv[3].replace("'",""),sys.argv[4].replace("'",""),sys.argv[5].replace("'",""))
+    a =uploadBI('https://analyticsdigitalinstance-bmfbdl6iatvi-bo.analytics.ocp.oraclecloud.com/',
+                 'sushilkumar.jadhav85@gmail.com',
+                 'Internal@123',
+                 "/Dev/BI Reports/AP_TurnOver_Ratio_Report.xdo,/BI Reports/Asset_Coverage_Ratio_Report.xdo",
+                 './local_git_folder/Dev/OUT/BI Reports')
 

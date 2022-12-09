@@ -97,7 +97,7 @@ def uploadBI(url, user_name, password, reportRelativePath, reportLocalPath):
     return ';'.join(responseResult)
 
 if __name__ == "__main__":
-      a=uploadBI(sys.args[1],sys.args[2],sys.args[3],sys.args[4],sys.args[5])
+      a=uploadBI(sys.argv[1],sys.argv[2],sys.argv[3],sys.argv[4],sys.argv[5])
 #     a =uploadBI('https://analyticsdigitalinstance-bmfbdl6iatvi-bo.analytics.ocp.oraclecloud.com/',
 #                  'sushilkumar.jadhav85@gmail.com',
 #                  'Internal@123',

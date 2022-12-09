@@ -101,6 +101,6 @@ if __name__ == "__main__":
     a =uploadBI('https://analyticsdigitalinstance-bmfbdl6iatvi-bo.analytics.ocp.oraclecloud.com/',
                  'sushilkumar.jadhav85@gmail.com',
                  'Internal@123',
-                 "/Dev/BI Reports/AP_TurnOver_Ratio_Report.xdo,/BI Reports/Asset_Coverage_Ratio_Report.xdo",
-                 './local_git_folder/Dev/OUT/BI Reports')
+                 "/Dev/BI_Reports/AP_TurnOver_Ratio_Report.xdo,/BI_Reports/Asset_Coverage_Ratio_Report.xdo",
+                 './local_git_folder/Dev/OUT/BI_Reports')
 

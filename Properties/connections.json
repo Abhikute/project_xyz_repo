@@ -1,5 +1,5 @@
 {
-  "OIC_instance_conn1":"",
+  "OIC_instance_conn1":123,
   "ERP_instance_conn1":"https://analyticsdigitalinstance-bmfbdl6iatvi-bo.analytics.ocp.oraclecloud.com/",
   "OIC_instance_conn1_cred":"",
    "ERP_instance_conn1_cred" :

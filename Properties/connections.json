@@ -3,13 +3,13 @@
   {
     "ERP":"Internal@123",
     "OIC":"Internal@123"
-  }
+  } ,
   
   "URL":
   {
   "ERP":"https://analyticsdigitalinstance-bmfbdl6iatvi-bo.analytics.ocp.oraclecloud.com/",
   "OIC":""
-  }
+  },
 
   "USERNAME":
   {

@@ -1,11 +1,22 @@
 {
-  "OIC_instance_conn1":123,
-  "ERP_instance_conn1":"https://analyticsdigitalinstance-bmfbdl6iatvi-bo.analytics.ocp.oraclecloud.com/",
-  "OIC_instance_conn1_cred":"",
-   "ERP_instance_conn1_cred" :
-        {
-        "ERP_instance_conn1_pass":"Internal@123",
-        "ERP_instance_conn1_user":"sushilkumar.jadhav85@gmail.com"
-         }
+  "PASSWORD":
+  {
+    "ERP":"Internal@123",
+    "OIC":"Internal@123"
+  }
+  
+  "URL":
+  {
+  "ERP":"https://analyticsdigitalinstance-bmfbdl6iatvi-bo.analytics.ocp.oraclecloud.com/",
+  "OIC":""
+  }
 
+  "USERNAME":
+  {
+  "ERP":"sushilkumar.jadhav85@gmail.com",
+   "OIC":"sushilkumar.jadhav85@gmail.com"
+  }
+  
+  
+ 
 }

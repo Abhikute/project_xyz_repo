@@ -1,0 +1,10 @@
+{
+	"deploy_status":"#deploy_status#",
+	"deploy_reason":"#deploy_reason#",
+	"rice_obj_count":"#rice_obj_count#",
+	"db_env":"#db_env#",
+	"oic_env":"#oic_env#",
+	"rpt_env":"#rpt_env#",
+	"add_info":"#add_info#",
+	"rice_obj": [#rice_obj#]	
+}

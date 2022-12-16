@@ -1,0 +1,7 @@
+{
+	"artifact_name":"#artifact_name#",
+	"section":[#section#],
+	"section_data":{
+		#section_list_data#
+	}
+}

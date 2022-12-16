@@ -1,0 +1,16 @@
+<div class="card">
+<div class="card-header" id="heading##artifact_id##">
+  <h5 class="mb-0">
+	<button class="btn btn-link" data-toggle="collapse" data-target="###artifact_id##" aria-expanded="false" aria-controls="##artifact_id##">
+	  ##name##
+	</button>
+	<button class="btn disabled" style="background-color:##status_color##;"></button>
+  </h5>
+</div>
+
+<div id="##artifact_id##" class="collapse" aria-labelledby="heading##artifact_id##" data-parent="#accordion">
+  <div class="card-body">
+	##payload##
+  </div>
+</div>
+</div>

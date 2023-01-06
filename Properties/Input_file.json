@@ -2,6 +2,6 @@
   "artifact_type":"BI Report",
   "target_instance":"ERP_instance_conn1",
   "source_inctance":"./local_git_folder/Dev/OUT/BI_Reports",
-   "report_list":"/Dev/BI_Reports/AP_TurnOver_Ratio_Report.xdo,/BI_Reports/ESS RequestTrack.xdo"
+   "report_list":"/Dev/BI_Reports/AP_TurnOver_Ratio_Report.xdo,/BI_Reports/DM_Test.xdm.catalog"
 
 }

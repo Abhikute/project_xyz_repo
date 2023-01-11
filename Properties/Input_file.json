@@ -1,7 +1,16 @@
 {
-  "artifact_type":"BI Report",
-  "target_instance":"ERP_instance_conn1",
-  "source_inctance":"./local_git_folder/Dev/OUT/BI_Reports",
-   "report_list":"/BI_Reports/DM_Test.xdm.catalog"
+  "artifact_type":"test1",
+  "REPORTS":
+          {
+        "target_instance": "ERP",
+        "source_repo": "./local_git_folder/Dev/OUT/BI_Reports",
+        "report_list": "/BI_Reports/test/BI_Reprots/DM_Test.xdm.catalog,/BI_Reports/test/BI_Reprots/ESS RequestTrack.xdo.catalog"
+          },
 
+  "OIC":
+        {
+        "target_instance": "OIC",
+        "source_repo": "./local_git_folder/Dev/OUT/OIC/",
+        "OIC_list": "MyDemoPkg.par,ECHODEMO|01.00.0000.iar"
+        }
 }

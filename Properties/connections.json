@@ -2,21 +2,16 @@
   "PASSWORD":
   {
     "ERP":"Internal@123",
-    "OIC":"Internal@123"
+    "OIC":"Oracle_123456"
   } ,
-  
   "URL":
   {
   "ERP":"https://analyticsdigitalinstance-bmfbdl6iatvi-bo.analytics.ocp.oraclecloud.com/",
-  "OIC":""
+  "OIC":"https://dftenpdoic-idvzj8jdhpc7-ia.integration.ocp.oraclecloud.com"
   },
-
   "USERNAME":
   {
   "ERP":"sushilkumar.jadhav85@gmail.com",
-   "OIC":"sushilkumar.jadhav85@gmail.com"
+    "OIC":"DPLOY_Service_USER"
   }
-  
-  
- 
 }

@@ -11,6 +11,6 @@
         {
         "target_instance": "OIC",
         "source_repo": "./local_git_folder/Dev/OUT/OIC/",
-        "OIC_list": "MyDemoPkg.par,ECHODEMO|01.00.0000.iar"
+        "OIC_list": "MyDemoPkg.par,DPERF_SFTP-01.00.0000.iar,DPERF_BANKVALIDATION-01.00.0000.iar"
         }
 }

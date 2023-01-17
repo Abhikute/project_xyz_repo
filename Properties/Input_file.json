@@ -4,7 +4,7 @@
           {
         "target_instance": "ERP",
         "source_repo": "./local_git_folder/Dev/OUT/BI_Reports",
-        "report_list": "/BI_Reports/test/BI_Reprots/DM_Test.xdm.catalog,/BI_Reports/test/BI_Reprots/ESS RequestTrack.xdo.catalog"
+        "report_list": "/BI_Reports/test/BI_Reprots/DM_Test.xdm.catalog,/BI_Reports/test/BI_Reprots/ESS RequestTrack.xdo.catalog,/BI_Reports/test/BI_Reprots/PJ.catalog,/BI_Reports/test/BI_Reprots/TestDM.xdm.catalog,/BI_Reports/test/BI_Reprots/TestRPT.xdo.catalog"
           },
 
   "OIC":

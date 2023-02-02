@@ -3,14 +3,14 @@
   "REPORTS":
           {
         "target_instance": "ERP",
-        "source_repo": "./local_git_folder/Dev/OUT/BI_Reports",
+        "source_repo": "./local_git_folder/Release_1/DEV/AP/BI_Reports",
         "report_list": "/BI_Reports/test/BI_Reprots/DM_Test.xdm.catalog,/BI_Reports/test/BI_Reprots/ESS RequestTrack.xdo.catalog,/BI_Reports/test/BI_Reprots/PJ.catalog,/BI_Reports/test/BI_Reprots/TestDM.xdm.catalog,/BI_Reports/test/BI_Reprots/TestRPT.xdo.catalog"
           },
 
   "OIC":
         {
         "target_instance": "OIC",
-        "source_repo": "./local_git_folder/Dev/OUT/OIC/",
+        "source_repo": "./local_git_folder/Release_1/DEV/AP/OIC/",
         "OIC_list": "MyDemoPkg.par,DPERF_SFTP-01.00.0000.iar,DPERF_BANKVALIDATION-01.00.0000.iar"
         }
 }
